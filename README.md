@@ -279,13 +279,14 @@ Detailed description of the Graylog representation aspect can be found by the li
 | Dashboards                        | ![(tick)](images/check.svg)                                                         | ![(tick)](images/check.svg)                                | ![(tick)](images/check.svg)  |
 | Alerts                            | ![(tick)](images/check.svg) ([Yelp/elastalert](https://github.com/Yelp/elastalert)) | ![(tick)](images/check.svg)                                | ![(error)](images/error.svg) |
 
-### User Management
+### AuthN/AuthZ
 
-|                         | Kibana                                                                                                                            | Graylog                                                                                                                           | Grafana - Loki                                                                                                                   |
+|                         | Kibana*                                                                                                                            | Graylog                                                                                                                           | Grafana - Loki                                                                                                                   |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| OAuth2                  | ![(error)](images/error.svg) | ![(error)](images/error.svg) | ![(tick)](images/check.svg) |
 | AD groups               | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg) |
 | AD users                | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg) |
-| External OAuth provider | ![(error)](images/error.svg) | ![(error)](images/error.svg) | ![(tick)](images/check.svg) |
+\* - setup without paid [X-Pack extension](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) 
 
 ### Additional Representation Services
 
@@ -321,5 +322,4 @@ We hope that this work will help engineers to make educated decisions on Log Ma
 ## References
 
 \[Mustafa, 2016\] AKCA, Mustafa & Aydoğan, Tuncay & Ilkuçar, Muhammer. (2016). An Analysis on the Comparison of the Performance and Configuration Features of Big Data Tools Solr and Elasticsearch. International Journal of Intelligent Systems and Applications in Engineering. 4. 8-8. 10.18201/ijisae.271328.
-
   
