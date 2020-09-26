@@ -1,8 +1,6 @@
-Open Source Log Management Solutions
-==================================================================
+# Open Source Log Management Solutions
 
-Abstract
-========
+## Abstract
 
 Currently there are multiple open-source tools intended for collection, storage and representation of text-based logs. In order to make knowledgeable long-term decisions on monitoring solutions, engineers need to understand differences in feature set, hardware requirements and level of support of those tools. 
 
@@ -12,8 +10,7 @@ The purpose of this research is to analyze differences between several well know
 
 It should be noted that only free Log Management solutions and their free features were reviewed. Study contains relevant parts that describe differences between tools of similar function.
 
-Log Management Systems
-======================
+## Log Management Systems
 
 Logs can be described as free-form comments, produced by the software during it's execution. In order to efficiently process and analyze them various open source tools have been created.
 
@@ -25,8 +22,7 @@ Log Management system is a combination of such tools, with core responsibilities
 
 More detailed definition and use cases of Log Management Systems can be found in [Sematext Log Management guide](https://sematext.com/guides/log-management) and [Graylog Log Management guide](https://www.graylog.org/post/what-is-log-management-a-complete-logging-guide)
 
-Structure of the Research
-=========================
+## Structure of the Research
 
 In order to visualize inter-dependencies between logging components we've created a compatibility map. Components are organized according to their function: collection, storage and representation. 
 
@@ -40,8 +36,7 @@ For readers, who want to experiment with described services we've provided a set
 
   
 
-Tools Compatibility Map
-=======================
+## Tools Compatibility Map
 
 This section represents inter-dependencies between most popular open-source components of logging tools.
 
@@ -57,8 +52,7 @@ Log Management System is expected to have one representation tool, one storage t
 
 ![](images/123373394.png)
 
-Stacks Overview
-===============
+## Stacks Overview
 
 Services that are responsible for logs collection and representation are usually dependent on specific logs storage. Therefore, it could be convenient to group them into solutions (stacks) differentiated by compatibility with certain logs storage:
 
@@ -66,8 +60,7 @@ Services that are responsible for logs collection and representation are usually
 2.  Elastic stack
 3.  Grafana Loki stack
 
-Solr Stack
-----------
+### Solr Stack
 
 Unfortunately opensource log representation solutions that are able to work with Solr have a set of critical drawbacks:
 
@@ -76,8 +69,7 @@ Unfortunately opensource log representation solutions that are able to work with
 
 Solr is quite close to Elastic in terms of feature set (for open-source versions) and performance (see [Mustafa, 2016](https://www.researchgate.net/publication/311916747_An_Analysis_on_the_Comparison_of_the_Performance_and_Configuration_Features_of_Big_Data_Tools_Solr_and_Elasticsearch)), as both are based on Lucene.
 
-Elastic Stack
--------------
+### Elastic Stack
 
 Tooling in this stack is mostly represented by solutions from [Elastic](https://www.elastic.co/about/).
 
@@ -85,8 +77,8 @@ Solutions from Elastic are well maintained and cover most of the log sources (s
 
 Elasticsearch is a mature full-text search engine [widely adopted](https://db-engines.com/en/ranking) by the industry.
 
-Grafana Stack
--------------
+### Grafana Stack
+
 
 Grafana Loki is a relatively new product - first beta was released [Jun 4, 2019](https://github.com/grafana/loki/releases/tag/v0.1.0). Version 1.0.0 seen the light [Nov 20, 2019](https://github.com/grafana/loki/releases)
 
@@ -94,22 +86,17 @@ Due to the novelty of the product there aren't lot of compatible logs collection
 
 There is also a [Docker driver](https://github.com/grafana/loki/blob/master/docs/clients/docker-driver/configuration.md) that is capable of routing logs directly to Loki instance.
 
-Stacks Summary  
-
------------------
+### Stacks Summary  
 
 Unfortunately the lack of high-quality representation tools renders Solr stack unfit for modern production ready systems.
 
 Grafana Stack is a new, promising player in the field of log-processing. It might be considered as a viable alternative to Elastic-based solutions.
 
-Storage Services Review  
-
-==========================
+## Storage Services Review  
 
 This section contains descriptions of services that are responsible for storing/indexing logs. 
 
-Elasticsearch
--------------
+### Elasticsearch
 
 Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java
 
@@ -117,8 +104,7 @@ Elasticsearch is a search engine based on the Lucene library. It provides a dist
 *   [https://github.com/elastic/elasticsearch](https://github.com/elastic/elasticsearch)
 *   [https://github.com/elastic/helm-charts/tree/master/elasticsearch](https://github.com/elastic/helm-charts/tree/master/elasticsearch)
 
-Solr
-----
+### Solr
 
 Solr is the fast open source search platform built on Apache Lucene™ that provides scalable indexing and search, as well as faceting, hit highlighting and advanced analysis/tokenization capabilities. Solr and Lucene are managed by the [Apache Software Foundation](http://www.apache.org/)
 
@@ -126,8 +112,7 @@ Solr is the fast open source search platform built on Apache Lucene™ that prov
 *   [https://github.com/apache/lucene-solr](https://github.com/apache/lucene-solr)
 *   [https://github.com/helm/charts/tree/master/incubator/solr](https://github.com/helm/charts/tree/master/incubator/solr)
 
-Grafana Loki
-------------
+### Grafana Loki
 
 Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by [Prometheus](https://prometheus.io/). It is designed to be very cost effective and easy to operate. It does not index the contents of the logs, but rather a set of labels for each log stream.
 
@@ -142,8 +127,7 @@ Compared to other log aggregation systems, Loki:
 *   [https://github.com/grafana/loki/tree/master/docs](https://github.com/grafana/loki/tree/master/docs)
 *   [https://github.com/grafana/loki/tree/master/production/helm](https://github.com/grafana/loki/tree/master/production/helm)
 
-Core Differences
-----------------
+### Core Differences
 
 |                         | Elasticsearch                        | Solr                                 | Grafana Loki                                                                                                                                                  |
 | ----------------------- | ------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -152,16 +136,11 @@ Core Differences
 | Orchestration           | \-                                   | Zookeeper                            | Consul                                                                                                                                                        |
 | Storage (Cluster Setup) | File System                          | File System                          | Index Storage: Amazon DynamoDB, Google BigTable, Apache Cassandra <br> Blob Storage: Amazon DynamoDB, Google BigTable, Apache Cassandra, S3, Google Cloud Storage |
 
-
-
-
-Collection Services Review
-=============================
+## Collection Services Review
 
 This section contains descriptions of services that are responsible for collecting, parsing and re-routing logs to logs storage. 
 
-Logstash
---------
+### Logstash
 
 Logstash is part of the [Elastic Stack](https://www.elastic.co/products) along with Beats, Elasticsearch and Kibana. Logstash is a server-side data processing service that ingests data from a multitude of sources , transforms it, and then sends it one of the many destinations.
 
@@ -172,8 +151,7 @@ Logstash has over 200+ plugins.
 *   [https://github.com/elastic/helm-charts/tree/master/logstash](https://github.com/elastic/helm-charts/tree/master/logstash) 
 *   [https://www.elastic.co/guide/en/logstash/current/input-plugins.html](https://www.elastic.co/guide/en/logstash/current/input-plugins.html)
 
-Beats
------
+### Beats
 
 The Beats are lightweight data shippers, written in Go, that can be installed on servers to capture all sorts of operational data (logs, metrics, or network packet data). The Beats send the operational data to Elasticsearch, either directly or via Logstash.
 
@@ -181,8 +159,7 @@ The Beats are lightweight data shippers, written in Go, that can be installed on
 *   [https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html)
 *   [https://github.com/elastic/helm-charts/tree/master/filebeat](https://github.com/elastic/helm-charts/tree/master/filebeat)
 
-Fluentd
--------
+### Fluentd
 
 Fluentd collects events from various data sources and writes them to files, RDBMS, NoSQL, IaaS, SaaS, Hadoop and so on. Fluentd helps you unify your logging infrastructure (Learn more about the [Unified Logging Layer](https://www.fluentd.org/blog/unified-logging-layer))
 
@@ -192,8 +169,7 @@ Fluentd collects events from various data sources and writes them to files, RDB
 *   [https://docs.Fluentd.org/input](https://docs.fluentd.org/input)
 *   [https://github.com/helm/charts/tree/master/stable/Fluentd](https://github.com/helm/charts/tree/master/stable/fluentd)
 
-Promtail
---------
+### Promtail
 
 Promtail's mode of operation is to discover log files stored on disk and forward them associated with a set of labels to Loki. Promtail can do service discovery for Kubernetes pods running on the same node as Promtail, act as a container sidecar or a Docker logging driver, read logs from specified folders, and tail the systemd journal.
 
@@ -201,8 +177,7 @@ Promtail's mode of operation is to discover log files stored on disk and forward
 *   [https://github.com/grafana/loki/blob/master/docs/overview/comparisons.md](https://github.com/grafana/loki/blob/master/docs/overview/comparisons.md)
 *   [https://github.com/grafana/loki/tree/master/production/helm/promtail](https://github.com/grafana/loki/tree/master/production/helm/promtail)
 
-Graylog
--------
+### Graylog
 
 *   [http://docs.graylog.org/en/3.1/index.html](http://docs.graylog.org/en/3.1/index.html)
 *   [https://github.com/Graylog2/graylog2-server](https://github.com/Graylog2/graylog2-server)
@@ -224,8 +199,7 @@ Finally, you can find binding of Fluentd and GELF Plugin (inspired by [https://b
 *   [https://github.com/emsearcy/fluent-plugin-gelf](https://github.com/emsearcy/fluent-plugin-gelf)
 *   [https://github.com/deepal/fluent-plugin-gelf](https://github.com/deepal/fluent-plugin-gelf)
 
-Core Differences
-----------------
+### Core Differences
 
 Below is a comparison of various open-source logs collectors. according to resource requirements, supported sources and downstream destinations.
 
@@ -237,8 +211,7 @@ Below is a comparison of various open-source logs collectors. according to resou
 | Alerting              | ![(error)](images/error.svg) | ![(error)](images/error.svg) | ![(tick)](images/check.svg) | ![(tick)](images/check.svg) | ![(error)](images/error.svg) |
 | Multiple Destinations | ![(tick)](images/check.svg)  | ![(error)](images/error.svg) | ![(tick)](images/check.svg) | ![(tick)](images/check.svg) | ![(error)](images/error.svg) |
 
-Log Sources Compatibility Map
------------------------------
+### Log Sources Compatibility Map
 
 Most common sources of logs, grouped by producers:
 
@@ -267,21 +240,15 @@ Most common sources of logs, grouped by producers:
 | Kafka                        | ![(tick)](images/check.svg)  | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg)  | ![(error)](images/error.svg) |
 | AMQP                         | ![(tick)](images/check.svg)  | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(error)](images/error.svg) | ![(error)](images/error.svg) |
 
-
-
-
 \* - Beats is a set of tools, rather then a single application
 
-Representation Services Review  
-
-=================================
+## Representation Services Review  
 
 This section shows a comparison of various user-facing solutions used as an interface for searching and visualizing logs.
 
 Solutions are compared according to these aspects: search syntax, visualization features, alerting and user management capabilities. 
 
-Kibana
-------
+### Kibana
 
 Kibana is an open source frontend application that sits on top of the Elastic Stack, providing search and data visualization capabilities for data indexed in Elasticsearch. Commonly known as the charting tool for the Elastic Stack (previously referred to as the ELK Stack after Elasticsearch, Logstash, and Kibana), Kibana also acts as the user interface for monitoring, managing, and securing an Elastic Stack cluster — as well as the centralized hub for built-in solutions developed on the Elastic Stack.
 
@@ -303,13 +270,11 @@ Detailed description of the Graylog representation aspect can be found by the li
 *   [https://docs.graylog.org/en/3.1/pages/queries.html](https://docs.graylog.org/en/3.1/pages/queries.html)
 *   [https://docs.graylog.org/en/3.1/pages/dashboards.html](https://docs.graylog.org/en/3.1/pages/dashboards.html)
 
-General Features
-----------------
+### General Features
 
 |                                   | Kibana                                                                                                                                                                                   | Graylog                                                                                                                                                         | Grafana - Loki                                                                                                                    |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Query Language                    | *   Kibana Query Language (close to Lucene syntax)
-*   Lucene                                                                                                                            | Close to Lucene syntax                                                                                                                                          | [LogQL](https://github.com/grafana/loki/blob/master/docs/logql.md)                                                                |
+| Query Language                    | <ul><li>Kibana Query Language (close to Lucene syntax)</li><li>Lucene</li></ul> | Close to Lucene syntax                                                                                                                                          | [LogQL](https://github.com/grafana/loki/blob/master/docs/logql.md)                                                                |
 | Fuzzy Search                      | ![(tick)](images/check.svg) (Levenshtein distance)                                  | ![(tick)](images/check.svg) (Damerau–Levenshtein distance) | ![(error)](images/error.svg) |
 | Regex Search                      | ![(tick)](images/check.svg)                                                         | ![(tick)](images/check.svg)                                | ![(tick)](images/check.svg)  |
 | Text Normalization                | ![(tick)](images/check.svg)                                                         | ![(tick)](images/check.svg)                                | ![(error)](images/error.svg) |
@@ -317,8 +282,7 @@ General Features
 | Dashboards                        | ![(tick)](images/check.svg)                                                         | ![(tick)](images/check.svg)                                | ![(tick)](images/check.svg)  |
 | Alerts                            | ![(tick)](images/check.svg) ([Yelp/elastalert](https://github.com/Yelp/elastalert)) | ![(tick)](images/check.svg)                                | ![(error)](images/error.svg) |
 
-User Management
----------------
+### User Management
 
 |                         | Kibana                                                                                                                            | Graylog                                                                                                                           | Grafana - Loki                                                                                                                   |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -326,8 +290,7 @@ User Management
 | AD users                | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg) |
 | External OAuth provider | ![(error)](images/error.svg) | ![(error)](images/error.svg) | ![(tick)](images/check.svg) |
 
-Additional Representation Services
-----------------------------------
+### Additional Representation Services
 
 This section lists services that provide limited feature set or have weak community support (based on github activity). 
 
@@ -350,13 +313,7 @@ Hue is a web-based interactive query editor that enables you to interact with da
 *   [https://docs.gethue.com/](https://docs.gethue.com/)
 *   [https://github.com/cloudera/hue](https://github.com/cloudera/hue)
 
-Playground
-==========
-
-Due to high availability of Grafana Loki it is chosen for demonstration purpose. The experimental project we developed is available here: [https://github.com/vlev/loki](https://github.com/vlev/loki)
-
-Summary
-=======
+## Summary
 
 Various open-source log management component were reviewed. This work provides structured description of their responsibilities, features and (inter-)dependencies.
 
@@ -364,8 +321,7 @@ Research is based on analysis of products' documentation. This work provides li
 
 We hope that this work will help engineers to make educated decisions on Log Management System architecture, build efficient, versatile monitoring infrastructures. 
 
-References
-==========
+## References
 
 \[Mustafa, 2016\] AKCA, Mustafa & Aydoğan, Tuncay & Ilkuçar, Muhammer. (2016). An Analysis on the Comparison of the Performance and Configuration Features of Big Data Tools Solr and Elasticsearch. International Journal of Intelligent Systems and Applications in Engineering. 4. 8-8. 10.18201/ijisae.271328.
 
