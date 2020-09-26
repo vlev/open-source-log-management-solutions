@@ -172,8 +172,7 @@ Fluentd collects events from various data sources and writes them to files, RDB
 
 Promtail's mode of operation is to discover log files stored on disk and forward them associated with a set of labels to Loki. Promtail can do service discovery for Kubernetes pods running on the same node as Promtail, act as a container sidecar or a Docker logging driver, read logs from specified folders, and tail the systemd journal.
 
-*   [https://github.com/grafana/loki/tree/master/docs/clients/promtail](https://github.com/grafana/loki/tree/master/docs/clients/promtail)
-*   [https://github.com/grafana/loki/blob/master/docs/overview/comparisons.md](https://github.com/grafana/loki/blob/master/docs/overview/comparisons.md)
+*   [https://grafana.com/docs/loki/latest/clients/promtail/](https://grafana.com/docs/loki/latest/clients/promtail/)
 *   [https://github.com/grafana/loki/tree/master/production/helm/promtail](https://github.com/grafana/loki/tree/master/production/helm/promtail)
 
 ### Graylog
@@ -226,7 +225,7 @@ Most common sources of logs, grouped by producers:
     1.  AMQP
     2.  Kafka
 
-| Log Sources                  | [Logstash](https://www.elastic.co/guide/en/logstash/current/input-plugins.html)              | [Beats\*](https://github.com/elastic/beats)                                                  | [Graylog](https://docs.graylog.org/en/3.1/pages/sidecar.html)                                | [Fluentd](https://docs.fluentd.org/input)                                                    | [Promtail](https://github.com/grafana/loki/blob/master/docs/clients/promtail/scraping.md)    |
+| Log Sources                  | [Logstash](https://www.elastic.co/guide/en/logstash/current/input-plugins.html)              | [Beats\*](https://github.com/elastic/beats)                                                  | [Graylog](https://docs.graylog.org/en/3.1/pages/sidecar.html)                                | [Fluentd](https://docs.fluentd.org/input)                                                    | [Promtail](https://grafana.com/docs/loki/latest/clients/promtail)    |
 | ---------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Files                        | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg)  |
 | Unstructured events over TCP | ![(tick)](images/check.svg)  | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg)  | ![(error)](images/error.svg) |
@@ -325,6 +324,4 @@ We hope that this work will help engineers to make educated decisions on Log Ma
 \[Mustafa, 2016\] AKCA, Mustafa & Aydoğan, Tuncay & Ilkuçar, Muhammer. (2016). An Analysis on the Comparison of the Performance and Configuration Features of Big Data Tools Solr and Elasticsearch. International Journal of Intelligent Systems and Applications in Engineering. 4. 8-8. 10.18201/ijisae.271328.
   
 ## Authors
-* Vitaliy Levashin
-* Mihail Klyuykov
-* Yuriy Chizhov
+Vitaliy Levashin, Mihail Klyuykov, Yuriy Chizhov
