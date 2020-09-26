@@ -324,3 +324,7 @@ We hope that this work will help engineers to make educated decisions on Log Ma
 
 \[Mustafa, 2016\] AKCA, Mustafa & Aydoğan, Tuncay & Ilkuçar, Muhammer. (2016). An Analysis on the Comparison of the Performance and Configuration Features of Big Data Tools Solr and Elasticsearch. International Journal of Intelligent Systems and Applications in Engineering. 4. 8-8. 10.18201/ijisae.271328.
   
+## Authors
+* Vitaliy Levashin
+* Mihail Klyuykov
+* Yuriy Chizhov
