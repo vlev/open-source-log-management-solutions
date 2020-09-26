@@ -286,6 +286,7 @@ Detailed description of the Graylog representation aspect can be found by the li
 | OAuth2                  | ![(error)](images/error.svg) | ![(error)](images/error.svg) | ![(tick)](images/check.svg) |
 | AD groups               | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg) |
 | AD users                | ![(error)](images/error.svg) | ![(tick)](images/check.svg)  | ![(tick)](images/check.svg) |
+
 \* - setup without paid [X-Pack extension](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) 
 
 ### Additional Representation Services
