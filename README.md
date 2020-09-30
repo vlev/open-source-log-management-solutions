@@ -32,8 +32,6 @@ We define three component's stacks, clustered around storage services: Solr, Ela
 
 Review of the stacks is followed by a description of individual logging components, grouped by it's responsibility: collection, storage or representation.
 
-For readers, who want to experiment with described services we've provided a set of Github-hosted playground projects (docker-compose definitions).
-
   
 
 ## Tools Compatibility Map
